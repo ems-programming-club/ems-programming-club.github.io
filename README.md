@@ -24,7 +24,7 @@ This site is where we share what our club's about, what we're building, and how 
 
 ## Contributing
 
-Members currently have direct push access to this repo — just clone, make your changes, and push straight to the branch.
+Members currently have direct push access to this repo — just clone, make your changes, and push straight to the branch. (Or edit on github)
 
 > A proper PR-based workflow will be set up later on.
 
