@@ -1,0 +1,108 @@
+#island{
+  border: 6.8px solid #2a3f55;
+  border-radius: 38px;
+  width: 660px;
+  background: #0a1624;
+  margin: 0 auto;
+  border: 50px solid #baafa5;
+  height: 2435px;
+}
+title {
+  background-color: linear-gradient (to right, green, blue, yellow);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+body {
+	background: url("954366.webp") no-repeat center center fixed;
+	size: 100% 100%;
+}
+.banner {
+	width: 100%;
+	height: 100vh;
+	text-align: center;
+	overflow: hidden;
+	position: relative;
+}
+.banner .slider {
+	position: absolute;
+	width: 200px;
+	height: 250px;
+	top: 10%;
+	left: calc(50% - 100px);
+	transform-style: preserve-3d;
+	transform: perspective(1000px);
+	animation: autoRun 20s linear infinite;
+}
+@keyframes autoRun{
+	from{
+		transform: perspective(1000px) rotateX(-16deg) rotateY(0deg);
+	}to{
+		transform: perspective(1000px) rotateX(-16deg) rotateY(360deg);
+	}
+}
+.banner .slider .item{
+	position: absolute;
+	inset: 0 0 0 0;
+	transform: 
+		translateZ(550px);
+}
+.banner .slider .item img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	border-radius: 25px;
+}
+#item1 {
+	transform: rotateY(calc( (1 - 1) * (360 / 8) * 1deg)) translateZ(550px);
+}
+#item2 {
+	transform: rotateY(calc( (2 - 1) * (360 / 8) * 1deg)) translateZ(550px);
+}
+#item3 {
+	transform: rotateY(calc( (3 - 1) * (360 / 8) * 1deg)) translateZ(550px);
+}
+#item4 {
+	transform: rotateY(calc( (4 - 1) * (360 / 8) * 1deg)) translateZ(550px);
+}
+#item5 {
+	transform: rotateY(calc( (5 - 1) * (360 / 8) * 1deg)) translateZ(550px);
+}
+#item6 {
+	transform: rotateY(calc( (6 - 1) * (360 / 8) * 1deg)) translateZ(550px);
+}
+#item7 {
+	transform: rotateY(calc( (7 - 1) * (360 / 8) * 1deg)) translateZ(550px);
+}
+#item8 {
+	transform: rotateY(calc( (8 - 1) * (360 / 8) * 1deg)) translateZ(550px);
+}
+#left {
+	width: 50%;
+	height: 100vh;
+	float: left;
+}
+#right {
+	width: 50%;
+	height: 100vh;
+	float: right;
+}
+footer {
+	clear: both;
+}
+header h1 {
+	font-size: 6vh;
+	text-align: center;
+}
+
+#rickroll.visited {
+  visibility: hidden;
+  position: relative;
+}
+
+#rickroll.visited::after {
+  content: "get rickrolled lol";
+  visibility: visible;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
