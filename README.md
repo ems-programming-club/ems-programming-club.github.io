@@ -12,10 +12,10 @@ This site is where we share what our club's about, what we're building, and how 
 
 - [Aubrey Chen (harpySDX)](https://github.com/harpySDX)
 - [Ayaan Mirza (MirzaAyBaig12)](https://github.com/MirzaAyBaig12)
-- [Donnie Wang (wangdonnie8)](https://github.com/wangdonnie8)
+- [Donnie Wang (wangdonnie8)](https://github.com/wangdonnie8) (Yes Connor that typo was intentional)
 - [Connor Merlin (pigeonwithminigun)](https://github.com/pigeonwithminigun)
 - [Owen Forsynth (deathstarowen-star)](https://github.com/deathstarowen-star)
-(Yes Connor that typo was intentional)
+
 
 ## Tech Stack
 
