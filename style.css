@@ -1,111 +1,284 @@
-#island{
-	border: 6.8px solid #2a3f55;
-	border-radius: 38px;
-  	width: 660px;
-  	background: #0a1624;
-  	margin: 0 auto;
-  	height: 2435px;
+/* Earl Marriott Computer Science Club - Modern CSS Reset and Styles */
+
+/* CSS Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-.gradient-text {
-	background-image: linear-gradient(to right, green, blue, yellow);
-	-webkit-background-clip: text;
-	background-clip: text;
-	color: transparent;
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
 }
 
 body {
-	background: url("954366.webp") no-repeat center center fixed;
-	background-size: 100% 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #eee;
+    background-color: #000;
+    background-image: url('placeholder.webp');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 100vh;
 }
 
-.banner {
-	width: 100%;
-	height: 100vh;
-	text-align: center;
-	overflow: hidden;
-	position: relative;
+/* Container */
+#island {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 25px;
+    background-color: rgba(10, 22, 36, 0.9); /* Semi-transparent dark background */
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
 }
-.banner .slider {
-	position: absolute;
-	width: 200px;
-	height: 250px;
-	top: 10%;
-	left: calc(50% - 100px);
-	transform-style: preserve-3d;
-	transform: perspective(1000px);
-	animation: autoRun 20s linear infinite;
+
+/* Gradient Text */
+.gradient-text {
+    background: linear-gradient(to right, #4CAF50, #2196F3, #FFEB3B);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: bold;
+    text-align: center;
+    padding: 20px 0;
 }
-@keyframes autoRun{
-	from{
-		transform: perspective(1000px) rotateX(-16deg) rotateY(0deg);
-	}to{
-		transform: perspective(1000px) rotateX(-16deg) rotateY(360deg);
-	}
+
+/* Header Styles */
+header {
+    text-align: center;
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 30px;
 }
-.banner .slider .item{
-	position: absolute;
-	inset: 0 0 0 0;
-	transform: 
-		translateZ(550px);
-}
-.banner .slider .item img {
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
-	border-radius: 25px;
-}
-#item1 {
-	transform: rotateY(calc( (1 - 1) * (360 / 8) * 1deg)) translateZ(550px);
-}
-#item2 {
-	transform: rotateY(calc( (2 - 1) * (360 / 8) * 1deg)) translateZ(550px);
-}
-#item3 {
-	transform: rotateY(calc( (3 - 1) * (360 / 8) * 1deg)) translateZ(550px);
-}
-#item4 {
-	transform: rotateY(calc( (4 - 1) * (360 / 8) * 1deg)) translateZ(550px);
-}
-#item5 {
-	transform: rotateY(calc( (5 - 1) * (360 / 8) * 1deg)) translateZ(550px);
-}
-#item6 {
-	transform: rotateY(calc( (6 - 1) * (360 / 8) * 1deg)) translateZ(550px);
-}
-#item7 {
-	transform: rotateY(calc( (7 - 1) * (360 / 8) * 1deg)) translateZ(550px);
-}
-#item8 {
-	transform: rotateY(calc( (8 - 1) * (360 / 8) * 1deg)) translateZ(550px);
-}
-#left {
-	width: 50%;
-	height: 100vh;
-	float: left;
-}
-#right {
-	width: 50%;
-	height: 100vh;
-	float: right;
-}
-footer {
-	clear: both;
-}
+
 header h1 {
-	font-size: 6vh;
-	text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
 }
 
-#rickroll.visited {
-  visibility: hidden;
-  position: relative;
+/* Navigation */
+nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.nav-link {
+    display: inline-block;
+    padding: 12px 24px;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+}
+
+.nav-link:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.nav-link.active {
+    background: rgba(76, 175, 80, 0.3);
+    border-color: rgba(76, 175, 80, 0.5);
+}
+
+.rickroll-link {
+    background: rgba(255, 68, 68, 0.2);
+    border-color: rgba(255, 68, 68, 0.3);
+    color: #ff4444;
+    font-weight: bold;
+}
+
+.rickroll-link:hover {
+    background: rgba(255, 68, 68, 0.3);
+    color: #ff6b6b00b;
+}
+
+/* Main Content */
+main {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+h2 {
+    color: #4CAF50;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #4CAF50;
+    display: inline-block;
+}
+
+p {
+    margin-bottom: 20px;
+    line-height: 1.8;
+    color: #ddd;
+}
+
+ul {
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+li {
+    margin-bottom: 10px;
+    color: #ccc;
+}
+
+/* Achievement Cards */
+.achievement {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 25px;
+    margin-bottom: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.achievement:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 25px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 40px;
+    color: #aaa;
+    font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #island {
+        margin: 15px;
+        border-radius: 15px;
+        padding: 20px;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+
+    nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-link {
+        width: 80%;
+        text-align: center;
+        margin: 8px 0;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    #island {
+        margin: 10px;
+        padding: 15px;
+        border-radius: 12px;
+    }
+
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    .gradient-text {
+        padding: 15px 0;
+    }
+
+    nav {
+        gap: 10px;
+    }
+
+    .nav-link {
+        padding: 10px 18px;
+        font-size: 0.9rem;
+    }
+
+    h2 {
+        font-size: 1.4rem;
+    }
+}
+
+/* Animation for gradient text */
+.gradient-text {
+    background-image: linear-gradient(90deg, #4CAF50, #2196F3, #FFEB3B);
+    background-size: 200% 200%;
+    animation: gradientShift 8s ease infinite;
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Rickroll animation */
+#rickroll {
+    position: relative;
+    overflow: hidden;
 }
 
 #rickroll.visited::after {
-  content: "get rickrolled lol";
-  visibility: visible;
-  position: absolute;
-  top: 0;
-  left: 0;
+    content: "get rickrolled lol";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    color: #ffeb3b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: monospace;
+    animation: glitch 2s infinite;
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
+#rickroll.visited:hover::after {
+    opacity: 1;
+}
+
+@keyframes glitch {
+    0% {
+        text-shadow: 0 0 5px #ff0000, 0 0 10px #ff0000;
+    }
+    25% {
+        text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00;
+    }
+    50% {
+        text-shadow: 0 0 5px #0000ff, 0 0 10px #0000ff;
+    }
+    75% {
+        text-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff;
+    }
+    100% {
+        text-shadow: 0 0 5px #ff0000, 0 0 10px #ff0000;
+    }
+}
