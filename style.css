@@ -72,6 +72,9 @@ img {
     background-image: linear-gradient(90deg, var(--navy), var(--dark-navy), var(--light-blue));
     background-size: 200% 200%;
     animation: gradientShift 8s ease infinite;
+    text-shadow: 0 0 8px rgba(255,255,255,0.5), 0 0 12px rgba(255,255,255,0.3);
+    /* Improved contrast for mobile */
+    filter: drop-shadow(0 0 3px rgba(255,255,255,0.7));
 }
 
 /* Header Styles */
@@ -80,6 +83,7 @@ header {
     padding: 20px 0;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     margin-bottom: 30px;
+    position: relative;
 }
 
 header h1 {
@@ -234,17 +238,83 @@ footer {
         font-size: 1.8rem;
     }
 
-    nav {
-        flex-direction: column;
-        align-items: stretch; /* Make buttons full width */
-        gap: 10px;
+    /* Hamburger menu */
+    .hamburger {
+        display: block;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        width: 30px;
+        height: 20px;
+        cursor: pointer;
+        z-index: 100;
+        background: none;
+        border: none;
     }
 
-    .nav-link {
-        width: 100%; /* Full width buttons for easy tapping */
-        padding: 16px 20px; /* Larger touch target */
+    .hamburger .bar {
+        display: block;
+        width: 100%;
+        height: 3px;
+        background-color: var(--offwhite);
+        margin: 4px 0;
+        transition: 0.4s;
+    }
+
+    /* Hide nav by default on mobile */
+    #nav-menu {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 80%;
+        max-width: 300px;
+        height: 100vh;
+        background: rgba(1, 16, 39, 0.95);
+        backdrop-filter: blur(10px);
+        flex-direction: column;
+        align-items: center;
+        padding-top: 80px;
+        gap: 20px;
+        transition: 0.4s;
+        z-index: 99;
+        overflow-y: auto;
+        visibility: hidden;
+        opacity: 0;
+    }
+
+    #nav-menu.active {
+        left: 0;
+        visibility: visible;
+        opacity: 1;
+    }
+
+    /* Style for nav links when menu is open */
+    #nav-menu .nav-link {
+        width: 90%;
+        max-width: 250px;
+        padding: 16px 20px;
         font-size: 1rem;
-        box-sizing: border-box;
+        text-align: center;
+    }
+
+    /* Adjust logo size */
+    .logo {
+        max-height: 50px;
+        margin-right: 10px;
+    }
+
+    /* Ensure heading doesn't break */
+    .gradient-text {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+
+    .gradient-text h1 {
+        font-size: 1.8rem;
+        margin: 0;
     }
 
     h2 {
@@ -269,6 +339,106 @@ footer {
     .gradient-text h1 {
         font-size: 1.8rem;
         margin: 0;
+    }
+
+    h2 {
+        font-size: 1.6rem;
+    }
+
+    /* Adjust logo size */
+    .logo {
+        max-height: 50px;
+        margin-right: 10px;
+    }
+
+    /* Ensure heading doesn't break */
+    .gradient-text {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+
+    .gradient-text h1 {
+        font-size: 1.8rem;
+        margin: 0;
+    }
+
+    h2 {
+        font-size: 1.6rem;
+    }
+
+    /* Adjust logo size */
+    .logo {
+        max-height: 50px;
+        margin-right: 10px;
+    }
+
+    /* Ensure heading doesn't break */
+    .gradient-text {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+
+    .gradient-text h1 {
+        font-size: 1.8rem;
+        margin: 0;
+    }
+
+    h2 {
+        font-size: 1.6rem;
+    }
+
+    /* Adjust logo size */
+    .logo {
+        max-height: 50px;
+        margin-right: 10px;
+    }
+
+    /* Ensure heading doesn't break */
+    .gradient-text {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+
+    .gradient-text h1 {
+        font-size: 1.8rem;
+        margin: 0;
+    }
+
+    h2 {
+        font-size: 1.6rem;
+    }
+
+    /* Adjust logo size */
+    .logo {
+        max-height: 50px;
+        margin-right: 10px;
+    }
+
+    /* Ensure heading doesn't break */
+    .gradient-text {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+
+    .gradient-text h1 {
+        font-size: 1.8rem;
+        margin: 0;
+    }
+
+    h2 {
+        font-size: 1.6rem;
     }
 }
 
@@ -315,6 +485,22 @@ footer {
         padding: 20px 0;
         font-size: 0.85rem;
     }
+}
+
+/* Animated hamburger bars */
+.bar.active {
+    background-color: var(--light-blue);
+}
+
+/* Animates the hamburger to an X */
+.bar:nth-child(1).active {
+    transform: translateY(8px) rotate(45deg);
+}
+.bar:nth-child(2).active {
+    opacity: 0;
+}
+.bar:nth-child(3).active {
+    transform: translateY(-8px) rotate(-45deg);
 }
 
 /* Animation for gradient text */
