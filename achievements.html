@@ -12,12 +12,17 @@
             <div class="gradient-text">
                 <h1>Our Journey So Far</h1>
             </div>
-            <nav>
+            <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-controls="nav-menu" aria-expanded="false">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <nav id="nav-menu">
                 <a href="index.html" class="nav-link">Home</a>
                 <a href="achievements.html" class="nav-link active">Achievements</a>
                 <a href="#" class="nav-link">Blogs</a>
                 <a href="#" class="nav-link">Projects</a>
-                <a href="#" class="nav-link">About</a>
+                <a href="about.html" class="nav-link">About</a>
                 <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="nav-link rickroll-link" id="rickroll">Free V-Bucks!!!</a>
             </nav>
         </header>
@@ -60,5 +65,57 @@
             <p>Follow our progress on GitHub: <a href="https://github.com/ems-programming-club/ems-programming-club.github.io">ems-programming-club.github.io</a></p>
         </footer>
     </div>
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            // Animate hamburger bars
+            const bars = document.querySelectorAll('.hamburger .bar');
+            bars.forEach(bar => {
+                bar.classList.toggle('active');
+            });
+            // Toggle aria-expanded
+            const isExpanded = hamburger.getAttribute('aria-expanded') === 'true' || false;
+            hamburger.setAttribute('aria-expanded', !isExpanded);
+        });
+
+        // Close menu when a link is clicked
+        document.querySelectorAll('#nav-menu .nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                document.querySelectorAll('.hamburger .bar').forEach(bar => {
+                    bar.classList.remove('active');
+                });
+                // Set aria-expanded to false when closing
+                hamburger.setAttribute('aria-expanded', 'false');
+            });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+                navMenu.classList.remove('active');
+                document.querySelectorAll('.hamburger .bar').forEach(bar => {
+                    bar.classList.remove('active');
+                });
+                // Set aria-expanded to false when closing
+                hamburger.setAttribute('aria-expanded', 'false');
+            }
+        });
+
+        // Close menu when pressing Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                navMenu.classList.remove('active');
+                document.querySelectorAll('.hamburger .bar').forEach(bar => {
+                    bar.classList.remove('active');
+                });
+                // Set aria-expanded to false when closing
+                hamburger.setAttribute('aria-expanded', 'false');
+            }
+        });
+    </script>
 </body>
 </html>
