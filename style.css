@@ -95,6 +95,15 @@ header {
     position: relative;
 }
 
+#nav-menu {
+    position: relative;
+}
+
+/* Hamburger hidden by default; only shown on mobile via media query below */
+.hamburger {
+    display: none;
+}
+
 .header h1 {
     font-size: 2.5rem;
     margin-bottom: 10px;
@@ -149,6 +158,66 @@ nav {
     background: var(--accent-blue);
     color: var(--bg-primary);
     border-color: var(--accent-blue);
+}
+
+/* Gear / settings icon button */
+.gear-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    background: var(--bg-tertiary);
+    color: var(--text-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 50%;
+    cursor: pointer;
+    vertical-align: middle;
+    transition: all var(--transition-speed) ease;
+}
+
+.gear-btn:hover,
+.gear-btn:focus-visible {
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    transform: rotate(30deg);
+    outline: 2px solid rgba(88, 166, 255, 0.3);
+    border-color: rgba(88, 166, 255, 0.4);
+}
+
+.gear-btn.active {
+    color: var(--accent-blue);
+    border-color: rgba(88, 166, 255, 0.5);
+}
+
+/* Settings dropdown panel (desktop: floats under gear icon) */
+.settings-panel {
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 16px;
+    min-width: 220px;
+    box-shadow: var(--shadow-lg);
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 200;
+}
+
+.settings-panel.active {
+    display: flex;
+}
+
+.settings-label {
+    margin: 0;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-tertiary);
 }
 
 /* Push notification button */
@@ -336,6 +405,21 @@ footer {
         overflow-y: auto;
         visibility: hidden;
         opacity: 0;
+    }
+
+    .gear-btn {
+        margin-top: 10px;
+    }
+
+    .settings-panel {
+        position: fixed;
+        top: auto;
+        bottom: 20px;
+        left: 50%;
+        right: auto;
+        transform: translateX(-50%);
+        width: 85%;
+        max-width: 320px;
     }
 
     #nav-menu.active {
