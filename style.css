@@ -84,18 +84,28 @@ img {
 
 /* Gradient Text - Now just regular text styling for dark theme */
 .gradient-text {
-    text-align: center;
-    padding: 20px 0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-align: left;
+    padding: 0;
 }
 
 /* Header Styles */
 header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     border-bottom: 1px solid var(--border-color);
-    margin-bottom: 30px;
+    margin-bottom: 0;
     position: relative;
+    padding: 0 20px;
 }
 
 #nav-menu {
+    display: flex;
+    gap: 20px;
+    align-items: center;
     position: relative;
 }
 
@@ -123,10 +133,8 @@ header {
 /* Navigation */
 nav {
     display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
     gap: 12px;
-    margin-bottom: 25px;
+    align-items: center;
 }
 
 .nav-link {
@@ -142,6 +150,21 @@ nav {
     text-align: center;
     min-width: 80px;
     white-space: nowrap;
+}
+
+.nav-link.github-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+    text-decoration: none;
+    border-radius: var(--radius-md);
+    transition: all var(--transition-speed) ease;
+    border: 1px solid var(--border-color);
 }
 
 /* Hover/Focus states for accessibility */
@@ -596,8 +619,8 @@ footer {
 
 /* Logo specific styling */
 .logo {
-    height: 60px;
-    width: 60px;
+    height: 48px;
+    width: 48px;
     display: inline-block;
     vertical-align: middle;
     margin-right: 12px;
