@@ -125,7 +125,7 @@ header {
     font-weight: 700;
     letter-spacing: -0.02em;
     margin: 0;
-    font-size: clamp(2.5rem, 8vw, 4rem);
+    font-size: clamp(1.5rem, 4vw, 2rem);
     line-height: 1.2;
     color: var(--text-primary);
 }
@@ -175,6 +175,14 @@ nav {
     box-shadow: var(--shadow-sm);
     outline: 2px solid rgba(88, 166, 255, 0.3);
     border-color: rgba(88, 166, 255, 0.4);
+}
+
+/* Fix GitHub icon to display properly - use filled version */
+.nav-link.github-link svg {
+    fill: currentColor !important;
+    stroke: none !important;
+    width: 20px !important;
+    height: 20px !important;
 }
 
 .nav-link.active {
@@ -303,6 +311,8 @@ main {
 /* Hero section logo */
 .hero-logo {
     margin-bottom: 24px;
+    display: flex;
+    justify-content: center;
 }
 
 .hero-logo-img {
@@ -313,6 +323,7 @@ main {
     box-sizing: border-box;
     padding: 6px;
     background: linear-gradient(135deg, var(--bg-primary), var(--light-blue));
+    margin: 0 auto;
 }
 
 /* Increased hero heading size */
