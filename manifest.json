@@ -1,7 +1,7 @@
 {
-  "name": "Earl Marriott Computer Science Club",
-  "short_name": "EMS CS Club",
-  "description": "Official site for the Earl Marriott Secondary Computer Science / Programming Club — projects, achievements, and how to get involved.",
+  "name": "Earl Marriott Programming Club",
+  "short_name": "EMSPC",
+  "description": "Official site for the Earl Marriott Programming Club — projects, achievements, and how to get involved.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
