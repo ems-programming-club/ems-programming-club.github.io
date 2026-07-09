@@ -99,7 +99,7 @@ header {
     border-bottom: 1px solid var(--border-color);
     margin-bottom: 0;
     position: relative;
-    padding: 0 20px;
+    padding: 0 30px 20px;
 }
 
 #nav-menu {
@@ -138,8 +138,11 @@ nav {
 }
 
 .nav-link {
-    display: inline-block;
-    padding: 10px 20px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    padding: 0 20px;
     background: var(--bg-tertiary);
     color: var(--text-primary);
     text-decoration: none;
@@ -306,6 +309,18 @@ main {
     margin: 0 auto;
     width: 100%;
     text-align: center;
+    padding-top: 40px;
+}
+
+.page-title {
+    color: var(--text-primary);
+    margin-bottom: 2rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border-color);
+    display: inline-block;
+    font-weight: 600;
+    font-size: clamp(1.8rem, 4.5vw, 2.5rem);
+    letter-spacing: -0.01em;
 }
 
 /* Hero section logo */
@@ -366,7 +381,12 @@ li {
     padding: 2rem;
     margin-bottom: 2rem;
     border: 1px solid var(--border-color);
+    text-align: left;
     transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+}
+
+main section {
+    text-align: left;
 }
 
 .achievement:hover,
