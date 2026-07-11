@@ -53,10 +53,8 @@ async function enableNotifications() {
     });
 
     console.log("FCM registration token:", token);
-    alert("Token generated: " + (token ? token.slice(0, 20) + "..." : "EMPTY TOKEN"));
   } catch (err) {
     console.error("Error enabling notifications:", err);
-    alert("Push setup failed: " + err.message);
   }
 }
 
