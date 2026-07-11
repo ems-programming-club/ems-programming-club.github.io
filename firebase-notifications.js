@@ -45,6 +45,7 @@ async function enableNotifications() {
     if (permission !== "granted") return;
 
     const registration = await navigator.serviceWorker.register("/firebase-messaging-sw.js");
+    await navigator.serviceWorker.ready; // wait until SW is actually active, not just registered
 
     const token = await getToken(messaging, {
       vapidKey: VAPID_KEY,
@@ -52,8 +53,10 @@ async function enableNotifications() {
     });
 
     console.log("FCM registration token:", token);
+    alert("Token generated: " + (token ? token.slice(0, 20) + "..." : "EMPTY TOKEN"));
   } catch (err) {
     console.error("Error enabling notifications:", err);
+    alert("Push setup failed: " + err.message);
   }
 }
 
