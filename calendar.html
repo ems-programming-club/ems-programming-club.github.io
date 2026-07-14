@@ -1,0 +1,80 @@
+---
+layout: default
+title: Calendar
+---
+
+<main>
+  <h2 class="page-title">Upcoming Meetings</h2>
+
+  <div id="calendar-status" class="calendar-status">Loading events…</div>
+  <div id="calendar-list" class="calendar-list"></div>
+</main>
+
+<script>
+(function () {
+  const CALENDAR_ID = "829beaf6a1d1d7d610cb6905e115c91d1506a005052482f41befc1e302d01810@group.calendar.google.com";
+  const API_KEY = "AIzaSyDPIsaBF6bYSH6nyzh_SmO-wtOXVAfLROo";
+  const MAX_RESULTS = 10;
+
+  const statusEl = document.getElementById("calendar-status");
+  const listEl = document.getElementById("calendar-list");
+
+  const now = new Date().toISOString();
+  const url = `https://www.googleapis.com/calendar/v3/calendars/${encodeURIComponent(CALENDAR_ID)}/events` +
+    `?key=${API_KEY}&timeMin=${now}&singleEvents=true&orderBy=startTime&maxResults=${MAX_RESULTS}`;
+
+  fetch(url)
+    .then((res) => {
+      if (!res.ok) throw new Error("Calendar request failed (" + res.status + ")");
+      return res.json();
+    })
+    .then((data) => {
+      const events = data.items || [];
+      if (events.length === 0) {
+        statusEl.textContent = "No upcoming meetings scheduled.";
+        return;
+      }
+      statusEl.remove();
+      events.forEach((event) => {
+        listEl.appendChild(renderEvent(event));
+      });
+    })
+    .catch((err) => {
+      console.error("Calendar fetch error:", err);
+      statusEl.textContent = "Couldn't load the calendar right now.";
+    });
+
+  function renderEvent(event) {
+    const card = document.createElement("article");
+    card.className = "calendar-card";
+
+    const startRaw = event.start.dateTime || event.start.date;
+    const isAllDay = !event.start.dateTime;
+    const start = new Date(startRaw);
+
+    const dateStr = start.toLocaleDateString(undefined, {
+      weekday: "long",
+      month: "long",
+      day: "numeric"
+    });
+    const timeStr = isAllDay
+      ? "All day"
+      : start.toLocaleTimeString(undefined, { hour: "numeric", minute: "2-digit" });
+
+    card.innerHTML = `
+      <div class="calendar-date">${dateStr}</div>
+      <h3 class="calendar-title">${escapeHtml(event.summary || "Untitled event")}</h3>
+      <div class="calendar-time">${timeStr}</div>
+      ${event.location ? `<div class="calendar-location">📍 ${escapeHtml(event.location)}</div>` : ""}
+      ${event.description ? `<p class="calendar-desc">${escapeHtml(event.description)}</p>` : ""}
+    `;
+    return card;
+  }
+
+  function escapeHtml(str) {
+    const div = document.createElement("div");
+    div.textContent = str;
+    return div.innerHTML;
+  }
+})();
+</script>

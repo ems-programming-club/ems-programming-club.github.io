@@ -794,3 +794,53 @@ footer {
     border-radius: var(--radius-md);
     margin: 20px 0;
 }
+/* Calendar page */
+.calendar-status {
+    color: var(--text-secondary);
+    text-align: center;
+    padding: 40px 0;
+}
+.calendar-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    text-align: left;
+}
+.calendar-card {
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+}
+.calendar-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+}
+.calendar-date {
+    color: var(--accent-blue);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    margin-bottom: 6px;
+}
+.calendar-title {
+    color: var(--text-primary);
+    margin: 0 0 6px 0;
+    font-size: 1.3rem;
+}
+.calendar-time {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+.calendar-location {
+    color: var(--text-tertiary);
+    font-size: 0.9rem;
+    margin-top: 6px;
+}
+.calendar-desc {
+    color: var(--text-secondary);
+    margin-top: 12px;
+    font-size: 0.95rem;
+}
