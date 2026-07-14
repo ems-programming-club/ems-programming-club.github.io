@@ -742,8 +742,20 @@ footer {
 }
 
 /* Post detail styles */
+.back-link {
+    display: inline-block;
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-weight: 500;
+    margin-bottom: 20px;
+    transition: color var(--transition-speed) ease;
+}
+.back-link:hover {
+    color: var(--accent-blue);
+}
 .post-header {
     margin-bottom: 30px;
+    text-align: center;
 }
 .post-title {
     font-size: 2.2rem;
