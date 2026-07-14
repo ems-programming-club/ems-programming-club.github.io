@@ -20,9 +20,9 @@ title: Blogs
         </div>
         <a href="{{ post.url | relative_url }}" class="read-more">Read more →</a>
       </article>
-      {% if not forloop.last %}
+      {% unless forloop.last %}
       <hr>
-      {% endif %}
+      {% endunless %}
     {% endfor %}
   </div>
 </main>
