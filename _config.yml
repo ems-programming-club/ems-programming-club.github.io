@@ -1,0 +1,19 @@
+title: EMS Programming Club
+description: A club for students interested in computer science and programming.
+url: "https://ems-programming-club.github.io"
+baseurl: "" # for user/site repository, leave empty
+timezone: UTC
+theme: null # we are using our own CSS and layout
+markdown: kramdown
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - .sass-cache
+  - __pycache__
+  - .git
+  - .github

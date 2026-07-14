@@ -1,0 +1,28 @@
+---
+layout: default
+title: Blogs
+---
+
+<main>
+  <h1 class="page-title">Blogs</h1>
+
+  <div class="posts-list">
+    {% for post in site.posts %}
+      <article class="post-preview">
+        <header class="post-header">
+          <h2 class="post-title"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+          <div class="post-meta">
+            <time datetime="{{ post.date }}">{{ post.date | date: "%B %d, %Y" }}</time>
+          </div>
+        </header>
+        <div class="post-excerpt">
+          {{ post.excerpt }}
+        </div>
+        <a href="{{ post.url | relative_url }}" class="read-more">Read more →</a>
+      </article>
+      {% if not forloop.last %}
+      <hr>
+      {% endif %}
+    {% endfor %}
+  </div>
+</main>
